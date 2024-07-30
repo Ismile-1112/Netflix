@@ -106,7 +106,8 @@ body{
 }
 
 .hero__description{
-    margin: 0 50px;
+    margin: 25px 50px;
+    margin-bottom: 20px;
 }
 
 .email__input{
@@ -115,19 +116,21 @@ body{
     width: 100%;
     height: 100%;
     padding-left: 7px;
+    color: white;
 }
 
 .email__label{
     color: black;
     position: absolute;
-    top: 28%;
+    top: 24%;
     left: 2%;
     color: rgb(153, 149, 149);
     transition: 0.5s;
 }
 
 .form__container{
-    background-color: white;
+    border: 1px solid white;
+    background-color: rgba(0,0,0,0.4);
     width: 90%;
     height: 50px;
     position: relative;
@@ -142,7 +145,7 @@ body{
 }
 
 .email__input:focus + .email__label{
-    top: 0.2rem;
+    top: 0.1rem;
     font-size: 10px;
 }
 
@@ -153,6 +156,10 @@ body{
 
 .email__input:focus-visible{
     outline: none;
+}
+
+.email__input{
+    font-size: 15px;
 }
 
 .primary__button{
@@ -358,6 +365,93 @@ footer{
     color: #757575;
 }
 
+.create_password{
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 180px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.create_password h1{
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.create_password p{
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 1.5em;
+}
+
+.form-group {
+    margin-bottom: 1.5em;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #e50914;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #d40813;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    text-align: center;
+}
+
+#homeButton {
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
 @media (min-width: 768px){
     .hero__bg__image__container{
         height: 100vh;
@@ -479,28 +573,30 @@ footer{
     }
 
     .hero__title{
-        font-size: 4rem;
+        font-size: 3rem;
     }
 
     .hero__subtitle{
-        font-size: 2rem;
+        font-size: 1.7rem;
     }
 
     .form__container{
-        width: 60%;
-        height: 65px;
+        width: 50%;
+        height: 55px;
+        border-radius: 5px;
     }
 
     .email__form__container{
         flex-direction: row;
         align-items: center;
-        gap: 1px;
+        gap: 10px;
     }
 
     .primary__button{
-        height: 65px;
+        height: 55px;
         width: 20%;
         font-size: 18px;
+        border-radius: 5px;
     }
 
     .feature{
@@ -606,4 +702,120 @@ footer{
 
 @media (min-width: 1254px){
     
+}
+
+.open-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #e50914;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.open-button:hover {
+    background-color: #f40612;
+}
+
+.signin-container {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    width: 400px;
+    text-align: center;
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 300px;
+}
+
+.signin-form h2 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #333;
+    border-radius: 3px;
+    background: #333;
+    color: #fff;
+}
+
+.signin-button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #e50914;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.signin-button:hover {
+    background-color: #f40612;
+}
+
+.options, .signup-link{
+    margin-top: 20px;
+}
+
+.options a, .signup-link a {
+    color: white;
+}
+
+.remember-me {
+    color: #757575;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.remember-me input {
+    margin-right: 5px;
+}
+
+.signup-link p {
+    color: #757575;
+}
+
+.close-button {
+    color: #fff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#email-error{
+    position: absolute;
+    top: 100%;
+    left: 2px;
+    font-size: 16px;
+    font-weight: 400;
+    color: red;
+    transition: top 0.5s;
 }

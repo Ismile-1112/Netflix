@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="create_passwordID" class="create_password">
+        <!-- <span id="close-passwordPage" class="close-button">&times;</span> -->
+        <a href="http://localhost:5500" id="close-passwordPage" class="close-button">&times;</a>
+        <h1>Create a password to start your membership</h1>
+        <p>Just a few more steps and you're done!</p>
+        <form id="membershipForm">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="passwordPageEmail" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Add a password</label>
+                <input type="password" id="signupPassword" name="password" required>
+            </div>
+            
+            <button type="submit" id="SignUP_btn" class="submit-btn">SignUP</button>
+        </form>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <p style="color:black">SignUp Successful</p>
+            <button id="homeButton">Go to HomePage</button>
+        </div>
+    </div>
+
+    <script>
+        const email = localStorage.getItem('email');
+        if (email) {
+            document.getElementById('passwordPageEmail').value = email;
+        }
+
+        var password = document.getElementById("signupPassword");
+
+        document.getElementById('SignUP_btn').addEventListener('click', function(event) {
+            if(password.value){
+                event.preventDefault();
+                showModal();
+            }
+            
+        });
+        
+        document.getElementById('homeButton').addEventListener('click', function() {
+            window.location.href = 'http://localhost:5500'; 
+        });
+
+        function showModal() {
+            document.getElementById('signupModal').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

@@ -6,6 +6,7 @@
     <meta name="description" content="html code for netflix frontend" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="stylesheet" href="https://awsprojectsergio.s3.amazonaws.com/style.css" /> -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,7 +18,7 @@
         <nav class="navbar">
             <div class="navbar__brand">
                 <img
-                    src="https://www.freepnglogos.com/uploads/netflix-logo-0.png" 
+                    src="https://awsprojectsergio.s3.amazonaws.com/netflix-logo-0.png" 
                     alt="netflix logo"
                     class="brand__logo"
                 />
@@ -33,7 +34,29 @@
                     </div>
                 </div>
                 <div class="nav__item">
-                    <button class="signin__button">Sign in</button>
+                    <button id="open-signin" class="signin__button">Sign in</button>
+
+                    <div id="signin-modal" class="signin-container">
+                        <div class="signin-form">
+                            <span id="close-signin" class="close-button">&times;</span>
+                            <h2>Sign In</h2>
+                            <form action="#">
+                                <div class="input-group">
+                                    <input type="email" id="email" placeholder="Email or mobile number">
+                                </div>
+                                <div class="input-group">
+                                    <input type="password" id="password" placeholder="Password">
+                                </div>
+                                <button type="submit" class="signin-button">Sign In</button>
+                                <div class="options">
+                                    <a href="#">Forgot password?</a>
+                                </div>
+                                <div class="signup-link">
+                                    <p>New to Netflix? <a href="http://localhost:5500">Sign up now.</a></p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -42,23 +65,25 @@
         <section class="hero">
             <div class="hero__bg__image__container">
                 <img 
-                  src="https://assets.nflxext.com/ffe/siteui/vlv3/9c5457b8-9ab0-4a04-9fc1-e608d5670f1a/710d74e0-7158-408e-8d9b-23c219dee5df/IN-en-20210719-popsignuptwoweeks-perspective_alpha_website_small.jpg" \
+                  src="https://awsprojectsergio.s3.amazonaws.com/IN-en-20210719-popsignuptwoweeks-perspective_alpha_website_small.jpg" \
                   alt="BG hero image"
                   class="hero__bg__image"
                 />
             </div>
             <div class="hero__bg__overlay"></div>
-            <div class="hero__card">
-                <h1 class="hero__title">Unlimited Movies, TV<br /> Shows and More.</h1>
+            
+            <div id="div-to-toggle" class="hero__card">
+                <h1 class="hero__title">Unlimited Movies, TV Shows and More.</h1>
                 <p class="hero__subtitle">Watch anywhere. Cancel anytime.</p>
                 <p class="hero__description">Ready to watch? Enter your email to create or restart your membership.</p>
 
                 <div class="email__form__container">
-                    <div class="form__container">
-                        <input type="email" class="email__input" placeholder=" " /> 
+                    <div id="emailContainerID" class="form__container">
+                        <input type="email" id="email_validate" class="email__input" placeholder=" " onkeyup="validateEmail()"/> 
                         <label class="email__label">Email Address</label>
+                        <span id="email-error"></span>
                     </div>
-                    <button class="primary__button">
+                    <button id="getStarted" class="primary__button">
                         Get Started <i class="fal fa-chevron-right"></i>
                     </button>
                 </div>
@@ -72,14 +97,14 @@
                 </div>
                 <div class="feature__image__container">
                     <img 
-                      src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png" 
+                      src="https://awsprojectsergio.s3.amazonaws.com/tv.png" 
                       alt="feature image" 
                       class="feature__image" 
                     />
                     <div class="feature__background__video__container">
                         <video autoplay="" loop="" muted="" class="feature__background__video">
                             <source 
-                              src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-in-0819.m4v" 
+                              src="https://awsprojectsergio.s3.amazonaws.com/video-tv-in-0819.m4v" 
                               type="video/mp4"
                             />
                         </video>
@@ -95,14 +120,14 @@
                 </div>
                 <div class="feature__image__container">
                     <img 
-                      src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/mobile-0819.jpg" 
+                      src="https://awsprojectsergio.s3.amazonaws.com/mobile-0819.jpg" 
                       alt="feature image" 
                       class="feature__image" 
                     />
                     <div class="feature__2__poster__container">
                         <div class="poster__container">
                             <img 
-                              src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/boxshot.png" 
+                              src="https://awsprojectsergio.s3.amazonaws.com/boxshot.png" 
                               alt="poster"
                               class="poster" 
                             />
@@ -113,7 +138,7 @@
                         </div>
                         <div class="download__gif__container">
                             <img 
-                              src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/download-icon.gif" 
+                              src="https://awsprojectsergio.s3.amazonaws.com/download-icon.gif" 
                               alt="downloading gif" 
                               class="gif"
                             />
@@ -130,14 +155,14 @@
                 </div>
                 <div class="feature__image__container feature__3__image__container">
                     <img 
-                      src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/device-pile-in.png" 
+                      src="https://awsprojectsergio.s3.amazonaws.com/device-pile-in.png" 
                       alt="feature image" 
                       class="feature__image feature__3__image" 
                     />
                     <div class="feature__background__video__container feature__3__background__video__container">
                         <video autoplay="" loop="" muted="" class="feature__background__video feature__3__background__video">
                             <source 
-                              src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-devices-in.m4v" 
+                              src="https://awsprojectsergio.s3.amazonaws.com/video-devices-in.m4v" 
                               type="video/mp4"
                             />
                         </video>
@@ -153,7 +178,7 @@
                 </div>
                 <div class="feature__image__container">
                     <img 
-                      src="https://occ-0-4875-2164.1.nflxso.net/dnm/api/v6/19OhWN2dO19C9txTON9tvTFtefw/AAAABVxdX2WnFSp49eXb1do0euaj-F8upNImjofE77XStKhf5kUHG94DPlTiGYqPeYNtiox-82NWEK0Ls3CnLe3WWClGdiJP.png?r=5cf" 
+                      src="https://awsprojectsergio.s3.amazonaws.com/AAAABVxdX2WnFSp49eXb1do0euaj-F8upNImjofE77XStKhf5kUHG94DPlTiGYqPeYNtiox-82NWEK0Ls3CnLe3WWClGdiJP.png" 
                       alt="feature image" 
                       class="feature__image" 
                     />
@@ -278,5 +303,6 @@
         </div>
     </footer>
     <script src="index.js"></script>
+    <!-- <script src="https://awsprojectsergio.s3.amazonaws.com/index.js"></script> -->
 </body>
 </html>
