@@ -49,6 +49,24 @@
             }
             
         });
+        // for interaction with backend
+        document.getElementById('SignUP_btn').addEventListener('click', async (event) => {
+            event.preventDefault();
+        
+            const username = localStorage.getItem('email');
+            const password = password.value;
+        
+            const response = await fetch('http://localhost:3000/sign-in', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, password }),
+            });
+        
+            const result = await response.text();
+            alert(result);
+        });
         
         document.getElementById('homeButton').addEventListener('click', function() {
             window.location.href = 'http://localhost:5500'; 
@@ -56,7 +74,7 @@
 
         function showModal() {
             document.getElementById('signupModal').style.display = 'block';
-        }
+        }   
     </script>
 </body>
 </html>

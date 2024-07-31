@@ -92,12 +92,33 @@ function validateEmail(){
     return true;
 }
 
-// click event on Get Started button
+// for interation with backend
 
-// document.getElementById('getStarted').addEventListener('click', function() {
-//     document.getElementById('create_passwordID').style.display = 'block';
-// });
+var username = document.getElementById("loginPageEmail");
+var password = document.getElementById("signINPassword");
 
-// document.getElementById('close-passwordPage').addEventListener('click', function() {
-//     document.getElementById('create_passwordID').style.display = 'none';
-// });
+document.getElementById('SignIN_btn').addEventListener('click', function() {
+    alert(username.value);
+    alert(password.value);
+});
+
+document.getElementById('SignIN_btn').addEventListener('click', async (event) => {
+    event.preventDefault(); // Prevent the default form submission behavior
+
+    // Get the values from the login form fields
+    const username = username.value;
+    const password = password.value;
+
+    // Send a POST request to the backend server to login
+    const response = await fetch('http://localhost:3000/login', { // Replace with your backend server's URL
+        method: 'POST', // HTTP method
+        headers: {
+            'Content-Type': 'application/json', // Indicate that the request body contains JSON
+        },
+        body: JSON.stringify({ username, password }), // Convert the JavaScript object to a JSON string
+    });
+
+    // Get the response text from the server
+    const result = await response.text();
+    alert(result); // Display the response message in an alert box
+});
