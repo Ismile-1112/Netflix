@@ -14,11 +14,11 @@
         <p>Just a few more steps and you're done!</p>
         <form id="membershipForm">
             <div class="form-group">
-                <label for="email">Email</label>
+                <label>Email</label>
                 <input type="email" id="passwordPageEmail" name="email" required>
             </div>
             <div class="form-group">
-                <label for="password">Add a password</label>
+                <label>Add a password</label>
                 <input type="password" id="signupPassword" name="password" required>
             </div>
             
@@ -49,22 +49,24 @@
             }
             
         });
+        
         // for interaction with backend
         document.getElementById('SignUP_btn').addEventListener('click', async (event) => {
             event.preventDefault();
         
-            const username = localStorage.getItem('email');
-            const password = password.value;
+            const Username = localStorage.getItem('email');
+            const Password = password.value;
         
-            const response = await fetch('http://localhost:3000/sign-in', {
+            const response = await fetch('http://localhost:3000/newpage.html', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ username, password }),
+                body: JSON.stringify({ Username, Password }),
             });
         
             const result = await response.text();
+            console.log('response status: ', result);
             alert(result);
         });
         
