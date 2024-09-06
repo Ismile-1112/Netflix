@@ -452,6 +452,12 @@ footer{
     cursor: pointer;
 }
 
+.thumbs-up_svg{
+    height: 50px;
+    width: 50px;
+    margin-top: 20px;
+}
+
 @media (min-width: 768px){
     .hero__bg__image__container{
         height: 100vh;

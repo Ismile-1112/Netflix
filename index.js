@@ -46,6 +46,21 @@ document.getElementById('close-signin').addEventListener('click', function() {
     }
 });
 
+// Signin successful validation
+
+var password = document.getElementById("signINPassword");
+
+document.getElementById('SignIN_btn').addEventListener('click', function(event) {
+    if(password.value){
+        event.preventDefault();
+        showModal();
+    }  
+});
+
+function showModal() {
+    document.getElementById('signin-successful-modal').style.display = 'block';
+} 
+
 // Email validation code
 
 // document.getElementById('getStarted').addEventListener('click', function() {
